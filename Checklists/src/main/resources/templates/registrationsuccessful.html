@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Registration Successful</title>
+  <link rel="stylesheet" type="text/css" href="./styles/main.css" th:href="@{/styles/main.css}">
+  <script src="./javascript/main.js" th:src="@{/javascript/main.js}"></script>
+</head>
+
+<!-- <body class="bg" onload="displayHeader(), displayFooter()">
+    displayHeader()
+    <div id="header-place"></div> -->
+    
+<body class="bg" onload="displayFooter()">
+
+    <div class="body-section">
+        <div class="body-boxes">
+            <div class="body-box-side"></div>
+            <div class="body-box-mid">
+                <h2>Welcome to Checklists!</h2>
+                <br>
+                <div class="text-container">
+                    <div style = "text-align: center; font-size: larger;">
+                        <p>You have successfully signed in.</p>
+                        <br>
+						<p>
+							Sign in <a class="a-color-link" th:href="@{/login}" style="font-weight:bold;">here</a> to
+							start saving your lists.
+						</p>
+						<br>
+					</div>
+                </div>
+            </div>
+            <div class="body-box-side"></div>
+        </div>
+    </div>
+
+    <!--displayFooter()-->
+    <div id="footer-place"></div>
+</body>
+
+</html>

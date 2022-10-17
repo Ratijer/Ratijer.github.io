@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="./styles/main.css" th:href="@{/styles/main.css}">
+  <script src="./javascript/main.js" th:src="@{/javascript/main.js}"></script>
+</head>
+
+<body class="bg">
+    <div class="body-section">
+        <div class="body-boxes">
+            <!-- <div class="body-box-side" style="background-color: black;"></div> -->
+            <div id="register-body-box-mid" class="body-box-mid">
+                    <div class="text-container-1">
+                    <h3>Sign In</h3>
+                    <br>
+                       <div th:if="${param.error}">
+                 <div>Invalid email or password</div>
+              </div>
+                    <form class="text-container-1" th:action="@{/login}" method="post">
+                        <!--Email-->
+                        <div class="form-section-1">
+                            <label for="username">Email</label>
+                            <!-- <input type="email" id="email" pattern=".+@globex\.com" size="30" required> -->
+                            <input type="email" id="username" name = "username" autofocus="autofocus" placeholder="Enter Your Email" size="30" required/>
+                        </div>
+                        <br>
+                         <!--Password-->
+                        <div class="form-section-1">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter Your Password"
+                                minlength="8" required>
+                        </div>
+                        <br>
+                        <input type="submit" value="Login" class="submit-button">
+                    </form>
+                    <p class="bottom-text-flex">Don't have an account? <span style="font-weight: bold;"><a
+                                class="a-color-link" th:href="@{/register/registration-form}">Sign up.</a></span></p>
+                </div>
+            </div>
+            <!-- <div class="body-box-side" style="background-color: black;"></div> -->
+        </div>
+    </div>
+</body>
+
+</html>
