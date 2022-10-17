@@ -296,6 +296,8 @@ function createRemoveBtn(checkbox, cell, row, tableName) {
 const attrArray = [];
 
 function attrArrayFunct() {
+  // let useWhile = false;
+
   attrArray[0] = '<p><img src="./images/check-list.png" alt="icon"/>&nbsp;<a class = "a-color-link" href="https://www.flaticon.com/free-icons/task" target="-blank" rel="noopener noreferrer" title="task icons">Task icons created by Freepik - Flaticon</a></p>'
   attrArray[1] = '<br><p><img src="./images/down-arrow.png" alt="icon"/>&nbsp;<a class = "a-color-link" href="https://www.flaticon.com/free-icons/triangle" target="-blank" rel="noopener noreferrer"title="triangle icons">Triangle icons created by Iconpro86 - Flaticon. Edited by Me.</a></p>'
   attrArray[2] = '<br><p><a class = "a-color-link" href="https://www.pexels.com/photo/mug-watch-and-planner-book-on-brown-wooden-surface-2736499/" target="-blank" rel="noopener noreferrer" title="Mug, Watch, and Planner Book on Brown Wooden Surface">Mug, Watch, and Planner Book on Brown Wooden Surface by Content Pixie - Pexels. Edited by Me.</a></p>'
@@ -303,7 +305,26 @@ function attrArrayFunct() {
   for (let i = 0; i < attrArray.length; i++) {
     document.getElementById("attr-section").innerHTML += attrArray[i];
   }
+
+  //Another way to do this
+  // while(useWhile == true)
+  // {
+  //   let i = 0;
+  //   while(i < attrArray.length)
+  //   {
+  //     document.getElementById("attr-section").innerHTML += attrArray[i];
+  //     i++;
+  //   }
+  // }
 }
+
+//Commented out HTML below is created by attrArrayFunct()
+/* <p><img src="images\check-list.png" alt="icon"/>&nbsp;<a class = "a-color-link" href="https://www.flaticon.com/free-icons/task" target="-blank" rel="noopener noreferrer" title="task icons">Task icons created by Freepik - Flaticon</a></p>
+<br>
+<p><img src="images\down-arrow.png" alt="icon"/>&nbsp;<a class = "a-color-link" href="https://www.flaticon.com/free-icons/triangle" target="-blank" rel="noopener noreferrer"title="triangle icons">Triangle icons created by Iconpro86 - Flaticon. Edited by Me.</a></p>
+ <br>
+<p><a class = "a-color-link" href="https://www.flaticon.com/free-icons/triangle" target="-blank" rel="noopener noreferrer" title="Mug, Watch, and Planner Book on Brown Wooden Surface">Mug, Watch, and Planner Book on Brown Wooden Surface by Content Pixie - Pexels. Edited by Me.</a></p>
+</br> */
 
 //Validate confirmed password for registration
 function confirmPassValidate() {

@@ -441,7 +441,7 @@ input[type=email], input[type=password], .user-name{
     font-size: 100% !important;
 }
 
-.submit-button{
+input[type=submit]{
     min-width: 100px;
     height: 30px;
     padding: 3px;

@@ -1,65 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Bonus Content</title>
-  <link rel="stylesheet" type="text/css" href="./styles/main.css" th:href="@{/styles/main.css}">
-  <script src="./javascript/main.js" th:src="@{/javascript/main.js}"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
+    <script src="./javascript/main.js"></script>
 </head>
 
-<!-- <body class = "bg" onload="displayHeader(), displayFooter()">
-    Display Header
-    <div id="header-place"></div> -->
-    
-<body class = "bg" onload="displayFooter()">
-
-  <header>
-		<div class="header-content">
-			<div class="header-home">
-				<a th:href="@{/}"><img th:src="@{/images/check-list-64px.png}"
-					alt="checklists" /></a> <a th:href="@{/}"
-					class="header-text title-font">Checklists</a>
-			</div>
-			<nav class="nav-buttons">
-				<!-- Lists only available for users without accounts -->
-				<div class="dropdown" sec:authorize="!isAuthenticated()">
-					<span class="button-for-nav">Make a List &nbsp<img
-						th:src="@{/images/down-arrow.png}" alt="dropdown-icon" /></span>
-					<div class="dropdown-content">
-						<a th:href="@{/todo}">To-Do List</a> <a th:href="@{/shopping}">Shopping
-							List</a>
-					</div>
-				</div>
-				<!-- Lists only available for users WITH accounts -->
-				<div class="dropdown" sec:authorize="isAuthenticated()">
-					<span class="button-for-nav">Make a List &nbsp<img
-						th:src="@{/images/down-arrow.png}" alt="dropdown-icon" /></span>
-					<div class="dropdown-content">
-						<a th:href="@{/todouser/list-page}">To-Do List</a> <a th:href="@{/shoppinguser}">Shopping
-							List</a>
-					</div>
-				</div>
-				<a th:href="@{/about}" class="button-for-nav">About</a> <a
-					th:href="@{/credits}" class="button-for-nav">Attribution</a>
-				<!-- Login button, remove if user is signed in -->
-				<a th:href="@{/login}" class="button-for-nav"
-					sec:authorize="!isAuthenticated()">Sign In</a>
-
-				<!-- Account actions dropdown. Visible if user is signed in -->
-				<div class="dropdown" sec:authorize="isAuthenticated()">
-					<span class="button-for-nav">Account &nbsp<img
-						th:src="@{/images/down-arrow.png}" alt="dropdown-icon" /></span>
-					<div class="dropdown-content">
-						<a th:href="@{/userpage}">Profile</a> 
-						<a th:href="@{/logout}">Logout</a>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</header>
+<body class = "bg" onload="displayHeader(), displayFooter()">
+    <!--Display Header-->
+    <div id="header-place"></div>
 
     <div class="body-section">
         <div class = "body-box-mid">
