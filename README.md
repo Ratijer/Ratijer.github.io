@@ -4,7 +4,10 @@ Created by Rachel Atijera
 ABOUT
 Checklists is a website that allows you to make a to-do list or a shopping list on your browser. This website is functional on desktop
 computers and mobile phones. This project was created using Eclipse and MariaDB. Spring Boot Security was used for login and registration.
-              
+
+HOW TO ACCESS
+The Checklists folder inthe main repository includes all of the required files. It must be opened with Eclipse and also requires MariaDB for full functionality. This website can also be accessed through this link: https://ratijer.github.io/. Please note that the GitHub Page version isn't fully functioning; therefore, lists cannot be saved and there is no registration and login feature.
+
 HOW TO USE
 Whether you are creating a to-do list or a shopping list, you can put the required information below the list. 
 After putting in the info, click on the plus button and your new task or item should be on the checklist.
