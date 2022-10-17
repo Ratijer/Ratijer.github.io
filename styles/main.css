@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+* {
+    /* box-sizing: border-box; */
+    overflow-wrap: break-word;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    font-family: 'Roboto', sans-serif;
+    color: #EDF6F9;
+    background-color: #006D77;
+}
+  
+
+.bg{
+    background-image: url("../images/coffee-background-fade3.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*--Basic layout: Header, body/content, footer--*/
+header {
+    /*height of header is the height of the image*/
+    background-color: #83C5BE;
+    padding: 0.5%;
+    width: auto;
+}
+
+/*Header related items*/
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.header-home {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 800px;
+}
+
+.header-text {
+    font-size: 40px;
+}
+
+/*Navigation*/
+.nav-buttons {
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+}
+
+.button-for-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    min-width: 150px;
+    height: 50px;
+}
+
+.button-for-nav:hover,
+.dropdown-content a:hover{
+    background-color: #E29578;
+}
+
+/*Other Buttons*/
+.big-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E29578;
+    border-radius: 15px;
+    font-weight: bold;
+    width: 150px;
+    height: 150px;
+}
+
+.big-button:hover, input[type=submit]:hover{
+    background-color: #FFDDD2;
+}
+
+/*Dropdown*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #83C5BE;
+    font-size: 18px;
+    width: 220px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+}
+
+.dropdown:hover .button {
+    background-color: #E29578;
+}
+/*End of header related items*/
+
+footer {
+    background-color: #006D77;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    height: 30px;
+    width: auto;
+    font-size: smaller;
+}
+
+/*Content area*/
+.body-section {
+    width: auto;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+/*Content area (not footer or header)*/
+.body-boxes {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.body-boxes>div {
+    /*same height as .body-section*/
+    min-height: 100vh;
+}
+
+/*use this to put body-box-mid on the center of the page*/
+.body-box-side {
+    width: 20%;
+}
+
+.body-box-mid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    min-width: 60%;
+    width: fit-content;
+}
+
+.text-container, .text-container-2{
+    text-align: left;
+    align-items: left;
+    border-radius: 15px;
+    padding: 3%;
+    background-color: #006c7580;
+}
+
+/*No color, centered*/
+.text-container-1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+    width: 400px; 
+    min-height: 400px;
+    border-radius: 15px;
+    padding: 1%;
+    margin-top: 50px;
+    /* background-color: rgba(0, 108, 117); */
+}
+
+/*Centered, specific width*/
+.text-container-2{
+    text-align: center;
+    align-items: center;
+    width: 60%;
+}
+
+/*-----Text Edits-----*/
+/*Put text on the bottom of a flexbox*/
+.bottom-text-flex{
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+h1 {
+    font-size: 150px;
+}
+
+h2 {
+    font-size: 100px;
+}
+
+h3 {
+    font-size: 50px;
+}
+
+.text-container-1 > h3{
+    font-size: 75px;
+}
+
+/*No space between items*/
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/*Link*/
+a:link {
+    text-decoration: none;
+}
+
+a {
+    color: inherit;
+}
+
+.a-color-link {
+    color: #E29578;
+}
+
+.a-color-link:visited {
+    color: #FFDDD2;
+}
+
+/*Text edit misc*/
+.left-align {
+    text-align: left;
+    align-items: left;
+}
+
+.title-font {
+    font-family: 'Lexend', sans-serif;
+}
+
+/*Related to checklists (To-do list and Shopping list)*/
+.list-section,
+.list-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    width: 55%;
+    padding: 1%;
+}
+
+.list-section {
+    justify-content: center;
+    height: 600px;
+    padding: 0%;
+}
+
+.list-info {
+    /*This is a flexbox*/
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3%;
+    width: 100%;
+    height: 10%;
+    padding: 0px;
+
+    background-color: #83C5BE;
+}
+
+.checklist-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+    height: 70%;
+
+    background-color: linen;
+}
+
+table {
+    border-collapse: collapse;
+    color: black;
+    width: 100%;
+
+    table-layout: fixed;
+}
+
+td {
+    word-wrap: break-word
+}
+
+/*Affects table heading and rows created by main.js*/
+td,
+th {
+    border: 1px solid #504d4d;
+    text-align: center;
+    height: 35px;
+}
+
+.task-column,
+.click-column {
+    text-align: center;
+}
+
+.click-column {
+    word-wrap: break-word;
+    width: 10%;
+}
+
+tr:first-child {
+    background-color: #E29578;
+    color: #EDF6F9;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.input-section-todo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    width: 100%;
+    background-color: #83C5BE;
+}
+
+.input-section-shopping {
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    width: 100%;
+    background-color: #83C5BE;
+}
+
+.form-section, .form-section-1 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    align-items: left;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+}
+
+.form-section-1{
+    width: 80%;
+    height: fit-content;
+    flex-wrap: nowrap;
+}
+
+.input-section-shopping .form-section div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    align-items: left;
+    justify-content: center;
+}
+
+.num-input-container {
+    width: 70% !important;
+}
+
+.text-input {
+    display: flex;
+    gap: 1%;
+}
+
+input[type=text] {
+    /* padding: 0px 0px;
+    margin: 0px 0;
+    box-sizing: border-box; */
+    font-size: 30px;
+    height: 100%;
+    width: 80%;
+}
+
+input[type=number] {
+    padding: 0px 0px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    font-size: 30px;
+    height: 100%;
+    width: 60%;
+}
+
+/*For registering and login*/
+input[type=email], input[type=password], .user-name{
+    width: 95%;
+    height: 30px;
+}
+
+.user-name{
+    width: 95% !important;
+    height: 30px !important;
+    font-size: 100% !important;
+}
+
+.submit-button{
+    min-width: 100px;
+    height: 30px;
+    padding: 3px;
+    background-color: #E29578;
+    border: none;
+    color: #EDF6F9;
+    border-radius: 7px;
+}
+
+.square-button {
+    width: 40px;
+    height: 40px;
+    margin-top: 1;
+    font-size: larger;
+}
+
+/*Video*/
+video::-webkit-media-controls-volume-slider {
+    display: none;
+}
+
+video::-webkit-media-controls-mute-button {
+    display: none;
+}
+
+/*Media Query*/
+@media only screen and (max-width: 768px) {
+    .body-boxes{
+      width: 100%;
+      height: auto;
+    }
+
+    .body-box-side{
+        display: none;
+    }
+
+    #register-body-box-mid{
+        width: 100%;
+    }
+
+    .text-container-1{
+        width: 95%;
+        height: 100%;
+    }
+
+    .text-container-2{
+        width: 90%;
+    }
+
+    input[type=submit]{
+        min-width: 150px;
+        height: 50px;
+        font-size: larger;
+    }
+  
+    .nav-buttons {
+      font-size: larger;
+    }
+  
+    body,
+    html {
+      font-size: larger;
+      height: 100%;
+    }
+  
+    .header-text {
+      font-size: 300%;
+    }
+  
+    .dropdown-content {
+      font-size: larger;
+    }
+  
+    .list-section {
+      width: 100%;
+      height: 925px;
+    }
+
+    h1{
+        font-size: 125px;
+    }
+  }
+
+/*---------Put stuff in the middle--------------*/
+/*Perfect center*/
+/* display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+align-items: center;
+justify-content: center; */

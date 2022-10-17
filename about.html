@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>About</title>
+  <link rel="stylesheet" type="text/css" href="./styles/main.css" th:href="@{/styles/main.css}">
+  <script src="./javascript/main.js" th:src="@{/javascript/main.js}"></script>
+    <style>
+        #gradient-link {
+            background: rgb(226, 149, 120);
+            background: linear-gradient(0deg, rgb(177, 116, 94) 0%, rgba(226, 199, 120, 1) 100%);
+            background-size: 100%;
+            background-clip: border-box;
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+
+            font-size: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<!-- <body class="bg" onload="displayHeader(), displayFooter()">
+    displayHeader()
+    <div id="header-place"></div> -->
+    
+<body class="bg" onload="displayFooter()">
+
+ 	<header>
+		<div class="header-content">
+			<div class="header-home">
+				<a th:href="@{/}"><img th:src="@{/images/check-list-64px.png}"
+					alt="checklists" /></a> <a th:href="@{/}"
+					class="header-text title-font">Checklists</a>
+			</div>
+			<nav class="nav-buttons">
+				<!-- Lists only available for users without accounts -->
+				<div class="dropdown" sec:authorize="!isAuthenticated()">
+					<span class="button-for-nav">Make a List &nbsp<img
+						th:src="@{/images/down-arrow.png}" alt="dropdown-icon" /></span>
+					<div class="dropdown-content">
+						<a th:href="@{/todo}">To-Do List</a> <a th:href="@{/shopping}">Shopping
+							List</a>
+					</div>
+				</div>
+				<!-- Lists only available for users WITH accounts -->
+				<div class="dropdown" sec:authorize="isAuthenticated()">
+					<span class="button-for-nav">Make a List &nbsp<img
+						th:src="@{/images/down-arrow.png}" alt="dropdown-icon" /></span>
+					<div class="dropdown-content">
+						<a th:href="@{/todouser/list-page}">To-Do List</a> <a th:href="@{/shoppinguser}">Shopping
+							List</a>
+					</div>
+				</div>
+				<a th:href="@{/about}" class="button-for-nav">About</a> <a
+					th:href="@{/credits}" class="button-for-nav">Attribution</a>
+				<!-- Login button, remove if user is signed in -->
+				<a th:href="@{/login}" class="button-for-nav"
+					sec:authorize="!isAuthenticated()">Sign In</a>
+
+				<!-- Account actions dropdown. Visible if user is signed in -->
+				<div class="dropdown" sec:authorize="isAuthenticated()">
+					<span class="button-for-nav">Account &nbsp<img
+						th:src="@{/images/down-arrow.png}" alt="dropdown-icon" /></span>
+					<div class="dropdown-content">
+						<a th:href="@{/userpage}">Profile</a> 
+						<a th:href="@{/logout}">Logout</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	
+    <div class="body-section">
+        <div class="body-boxes">
+            <div class="body-box-side"></div>
+            <div class="body-box-mid">
+                <h2>About</h2>
+                <br>
+                <div class="text-container">
+                    <div class="left-align">
+                        <p>Checklists is a website that allows you to make a to-do list or a shopping list on
+                            your browser. There's no need to download an app.</p>
+                        <br>
+                        <p>This website is compatible with desktop computers and mobile devices.</p>
+                        <br>
+                    </div>
+                    <h3>How to Use</h3>
+                    <br>
+                    <div class="left-align">
+                        <p>Whether you are creating a to-do list or a shopping list, you can put the required
+                            information below
+                            the list. After putting in the info,
+                            click on the plus button and your new task or item should be on the checklist.
+                        </p>
+                        <br>
+                    </div>
+                    <h3>Saving Lists</h3>
+                    <br>
+                    <div class="left-align">
+                        <p>If you want to save your to-do lists you'll need to create an account and sign in. Please note that saving shopping lists is not available yet.</p>
+                    </div>
+                    <br>
+                    <h3 class="center-this"><a id="gradient-link" class="a-color-link" th:href="@{bonus}">Click Here
+                            for Bonus Content!</a></h3>
+                </div>
+            </div>
+            <div class="body-box-side"></div>
+        </div>
+    </div>
+
+    <!--displayFooter()-->
+    <div id="footer-place"></div>
+</body>
+
+</html>
