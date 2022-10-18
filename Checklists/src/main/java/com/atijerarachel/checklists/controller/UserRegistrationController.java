@@ -1,6 +1,7 @@
 package com.atijerarachel.checklists.controller;
 
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.atijerarachel.checklists.dto.UserRegistrationDto;
 import com.atijerarachel.checklists.entities.User;
@@ -18,6 +21,7 @@ import com.atijerarachel.checklists.service.UserService;
 @Controller
 @RequestMapping("/register")
 public class UserRegistrationController {
+	Logger logger = LoggerFactory.getLogger(UserRegistrationController.class);
 
    @Autowired
    private UserService userService;
@@ -44,7 +48,8 @@ public class UserRegistrationController {
            return "register";
        }
 
-       userService.save(userDto);
+      userService.save(userDto);
+      logger.info("New user successfully registered");
       return "redirect:/register/sucessful";
    }
 }
