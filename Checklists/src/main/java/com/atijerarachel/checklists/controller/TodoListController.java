@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.atijerarachel.checklists.dto.AddTaskDto;
 import com.atijerarachel.checklists.entities.Task;
@@ -24,6 +26,7 @@ import com.atijerarachel.checklists.service.TaskService;
 @Controller
 @RequestMapping("/todouser")
 public class TodoListController {
+	Logger logger = LoggerFactory.getLogger(TodoListController.class);
 
 	@Autowired
 	private TaskService taskService;
@@ -40,10 +43,10 @@ public class TodoListController {
 		return new AddTaskDto();
 	}
 
-	@ModelAttribute("taskEdit")
-	public Task taskEdit() {
-		return new Task();
-	}
+//	@ModelAttribute("taskEdit")
+//	public Task taskEdit() {
+//		return new Task();
+//	}
 
 	@GetMapping("/list-page")
 	public String showTodouserForm(Model model) {
@@ -105,6 +108,7 @@ public class TodoListController {
 		//Count checked/unchecked boxes
 		//Change the counts for completed and uncompleted tasks depending on the status of the checkbox
 		taskService.checkboxCount(task, false);
+		logger.info("New task successfully added");
 
 		return "redirect:/todouser/list-page";
 	}

@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Collection;
 //import java.util.HashSet;
 import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,11 +15,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-//import org.springframework.security.core.userdetails.User;
-//import org.springframework.security.core.userdetails.User.UserBuilder;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.atijerarachel.checklists.dto.UserRegistrationDto;
 import com.atijerarachel.checklists.entities.Role;
@@ -29,7 +27,8 @@ import com.atijerarachel.checklists.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-
+	Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+	
 	@Autowired
 	private UserRepository userRepository;
 
@@ -66,8 +65,10 @@ public class UserServiceImpl implements UserService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		User user = userRepository.findByEmail(email);
 		if (user == null) {
+		    logger.error("User not found");
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
+		logger.info("User successfully logged in");
 		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
 				mapRolesToAuthorities(user.getRoles()));
 	}
@@ -84,6 +85,7 @@ public class UserServiceImpl implements UserService {
 			// Get currently signed in user
 			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			if (principal == null) {
+				logger.error("Cannot find currently signed in user");
 				throw new CurrentUserNotFoundException("Cannot find currently signed in user");
 			}
 
