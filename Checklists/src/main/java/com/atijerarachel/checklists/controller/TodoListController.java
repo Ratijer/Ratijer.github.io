@@ -43,11 +43,6 @@ public class TodoListController {
 		return new AddTaskDto();
 	}
 
-//	@ModelAttribute("taskEdit")
-//	public Task taskEdit() {
-//		return new Task();
-//	}
-
 	@GetMapping("/list-page")
 	public String showTodouserForm(Model model) {
 		// Get list of tasks from the user's to-do list
@@ -77,6 +72,7 @@ public class TodoListController {
 		userTodoList.setTotalNumberofTasks(userTodoList.getTotalNumberofTasks() + 1);
 		userTodoList.setNumOfUncompletedTasks(userTodoList.getNumOfUncompletedTasks() + 1);
 		todoListRepository.save(userTodoList);
+		logger.info("Task successfully added");
 
 		return "redirect:/todouser/list-page";
 	}
@@ -93,6 +89,7 @@ public class TodoListController {
 		
 		//Remove task
 		taskService.remove(taskToRemove);
+		logger.info("Task successfully removed");
 		
 		return "redirect:/todouser/list-page";
 	}
@@ -108,7 +105,7 @@ public class TodoListController {
 		//Count checked/unchecked boxes
 		//Change the counts for completed and uncompleted tasks depending on the status of the checkbox
 		taskService.checkboxCount(task, false);
-		logger.info("New task successfully added");
+		logger.info("Task successfully updated");
 
 		return "redirect:/todouser/list-page";
 	}
