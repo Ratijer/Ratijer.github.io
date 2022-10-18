@@ -44,16 +44,16 @@ public class TaskServiceImpl implements TaskService{
 		//Get user's to-do list
 		Set<Task> taskList = getUserTodoList().getTasks();
 		
-		//If to-do list is empty, first index is 1
+		//If to-do list is empty, reset to-do list nextIndexNum to 0
 		if(taskList.isEmpty())
 		{
-			task.setIndexNum(1);
+			getUserTodoList().setNextIndexNum(0);
 		}
-		else
-		{
-			//Set next index
-			task.setIndexNum(taskList.size() + 1);
-		}	
+
+		//Set next index
+		task.setIndexNum(getUserTodoList().getNextIndexNum() + 1);
+		getUserTodoList().setNextIndexNum(getUserTodoList().getNextIndexNum() + 1);
+		
 		task.setCheckbox(false);
 		task.setTaskDesc(taskDto.getTaskDesc());
 		//Add task to Todolist and todo_tasks table in the DB

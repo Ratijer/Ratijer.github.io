@@ -21,6 +21,9 @@ public class TodoList {
 	private int totalNumberOfTasks = 0;
 	private int numOfCompletedTasks = 0;
 	private int numOfUncompletedTasks = 0;
+	
+	//Next index_num of a new task
+	private int nextIndexNum = 0;
 
 	// Constructors
 	public TodoList() {
@@ -70,6 +73,14 @@ public class TodoList {
 
 	public void ListId(Long id) {
 		this.id = id;
+	}
+	
+	public int getNextIndexNum() {
+		return nextIndexNum;
+	}
+
+	public void setNextIndexNum(int nextIndexNum) {
+		this.nextIndexNum = nextIndexNum;
 	}
 
 	@Override
