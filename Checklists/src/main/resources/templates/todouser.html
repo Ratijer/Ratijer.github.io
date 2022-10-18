@@ -117,7 +117,7 @@
 						th:object="${task}" method="post">
 						<!--User input-->
 						<input th:field="*{taskDesc}" type="text" name=task id=task
-							required minlength="1" maxlength="64">
+							required minlength="1" maxlength="64" autofocus="autofocus" >
 						<!--User submits items that gets added to the list-->
 						<!--                         <input type="button" id="addBtn" class="square-button" value="+"
                                 onclick="addRowToDo()" /> -->
