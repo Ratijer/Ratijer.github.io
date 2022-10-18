@@ -44,7 +44,7 @@ class TaskServiceImplTest {
 
 	// Initialize tasks
 	Task task1 = new Task("The first task");
-	Task task2 = new Task("The second task"); 
+	Task task2 = new Task("The second task");
 	Task task3 = new Task("The third task");
 
 	Task[] validTaskArray = { task1, task2, task3 };
@@ -73,13 +73,12 @@ class TaskServiceImplTest {
 
 		// Add tasks
 		for (Task newTask : validTaskArray) {
-			newTask = addTask(newTask);	//Make sure task ids are not null
+			newTask = addTask(newTask); // Make sure task ids are not null
 		}
 
 		// Check too see if tasks are in the To-do List Set<>
-		for(Task newTask : validTaskArray)
-		{
-			if(!taskList.contains(newTask)) {
+		for (Task newTask : validTaskArray) {
+			if (!taskList.contains(newTask)) {
 				tasksMatch = false;
 				break;
 			}
@@ -92,16 +91,16 @@ class TaskServiceImplTest {
 	// Test to see if a task (that's in the list) is properly removed the the DB
 	@Test
 	void removeTaskInListTest() {
-		//Add task that will be removed
+		// Add task that will be removed
 		Task task4 = new Task("Remove this Task");
-		task4 = addTask(task4);	//Make task4 id not null
+		task4 = addTask(task4); // Make task4 id not null
 
-		//Remove task (method being tested)
+		// Remove task (method being tested)
 		boolean result = taskList.remove(task4);
 		if (!result) {
 			assertTrue(false);
 		}
-		
+
 		taskRepository.save(task4);
 		taskRepository.deleteById(task4.getId());
 
@@ -125,26 +124,28 @@ class TaskServiceImplTest {
 		userRepository.delete(validUser1);
 //		validUser1.getUserLists().getTodoList().getTasks().clear();
 	}
-	
+
 	void taskListPrint(Set<Task> taskList) {
-		for(Task task : taskList)
-		{
+		for (Task task : taskList) {
 			System.out.println(task.getId());
 		}
 		System.out.println();
 	}
-	
+
 	Task addTask(Task newTask) {
 		// Input tasks in DB
 		Task task = new Task();
-
-		// If to-do list is empty, first index is 1
+		// Get todo list
+		TodoList userTodo = validUser1.getUserLists().getTodoList();
+		// If to-do list is empty, reset to-do list nextIndexNum to 0
 		if (taskList.isEmpty()) {
-			task.setIndexNum(1);
-		} else {
-			// Set next index
-			task.setIndexNum(taskList.size() + 1);
+			userTodo.setNextIndexNum(0);
 		}
+		
+		//Set next index
+		task.setIndexNum(userTodo.getNextIndexNum() + 1);
+		userTodo.setNextIndexNum(userTodo.getNextIndexNum() + 1);
+
 		task.setCheckbox(false);
 		task.setTaskDesc(newTask.getTaskDesc());
 		// Add task to Todolist and todo_tasks table in the DB
