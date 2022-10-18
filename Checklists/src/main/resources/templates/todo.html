@@ -99,7 +99,7 @@
                     <!--Instead of submitting, pressing enter executes addRowToDo()-->
                     <form class="text-input">
                         <!--User input-->
-                        <input type="text" name=task id=task required minlength="1" maxlength="64" onkeypress="enterForRows(event, 'todo-table')">
+                        <input type="text" name=task id=task required minlength="1" maxlength="64" autofocus="autofocus" onkeypress="enterForRows(event, 'todo-table')">
                         <!--User submits items that gets added to the list-->
                         <span><input type="button" id="addBtn" class="square-button" value="+"
                                 onclick="addRowToDo()" /></span>
