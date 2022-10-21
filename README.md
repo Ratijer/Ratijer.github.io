@@ -50,3 +50,6 @@ Scrum Board
 
 User Stories/Requirements Analysis
 ![image](https://user-images.githubusercontent.com/33971537/196223592-831280f7-1091-4589-ada5-7d5c028b91c2.png)
+
+TECHNOLOGIES USED: 
+![image](https://user-images.githubusercontent.com/33971537/197250282-acadbce0-90be-41de-8b44-39c63efd0e1d.png)
