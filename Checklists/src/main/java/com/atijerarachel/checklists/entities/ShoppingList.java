@@ -20,9 +20,12 @@ public class ShoppingList {
 	
 	// Statistic Counts
 	private int totalNumberOfItems = 0;	//Determined by quantity
-	private int numOfCompletedItems = 0;
-	private int numOfUncompletedItems = 0;
+	private int numOfPurchasedItems = 0;
+	private int numOfUnpurchasedItems = 0;
 	private double totalPriceOfItems = 0;
+	
+	//Next index_num of a new item
+	private int nextIndexNum = 0;
 	
 	//Constructors
 	public ShoppingList()
@@ -37,20 +40,26 @@ public class ShoppingList {
 	public int getTotalNumberOfItems() {
 		return totalNumberOfItems;
 	}
+	public int getNextIndexNum() {
+		return nextIndexNum;
+	}
+	public void setNextIndexNum(int nextIndexNum) {
+		this.nextIndexNum = nextIndexNum;
+	}
 	public void setTotalNumberOfItems(int totalNumberOfItems) {
 		this.totalNumberOfItems = totalNumberOfItems;
 	}
-	public int getNumOfCompletedItems() {
-		return numOfCompletedItems;
+	public int getNumOfPurchasedItems() {
+		return numOfPurchasedItems;
 	}
-	public void setNumOfCompletedItems(int numOfCompletedItems) {
-		this.numOfCompletedItems = numOfCompletedItems;
+	public void setNumOfPurchasedItems(int numOfPurchasedItems) {
+		this.numOfPurchasedItems = numOfPurchasedItems;
 	}
-	public int getNumOfUncompletedItems() {
-		return numOfUncompletedItems;
+	public int getNumOfUnpurchasedItems() {
+		return numOfUnpurchasedItems;
 	}
-	public void setNumOfUncompletedItems(int numOfUncompletedItems) {
-		this.numOfUncompletedItems = numOfUncompletedItems;
+	public void setNumOfUnpurchasedItems(int numOfUnpurchasedItems) {
+		this.numOfUnpurchasedItems = numOfUnpurchasedItems;
 	}
 	public double getTotalPriceOfItems() {
 		return totalPriceOfItems;
@@ -78,7 +87,7 @@ public class ShoppingList {
 	@Override
 	public String toString() {
 		return "ShoppingList [id=" + id + ", items=" + items + ", totalNumberOfItems=" + totalNumberOfItems
-				+ ", numOfCompletedItems=" + numOfCompletedItems + ", numOfUncompletedItems=" + numOfUncompletedItems
+				+ ", numOfPurchasedItems=" + numOfPurchasedItems + ", numOfUnpurchasedItems=" + numOfUnpurchasedItems
 				+ ", totalPriceOfItems=" + totalPriceOfItems + "]";
 	}
 }

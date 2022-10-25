@@ -14,7 +14,7 @@ public class Item {
 	private int indexNum;
 	private boolean checkbox;
 	private String itemName;
-	private int quantity = 0;
+	private int quantity = 1;
 	private double price = 0;
 	
 	public Item() {
@@ -40,7 +40,7 @@ public class Item {
 	public Item(String itemName)
 	{
 		this.itemName = itemName;
-		this.quantity = 0;
+		this.quantity = 1;
 		this.price = 0;
 	}
 	

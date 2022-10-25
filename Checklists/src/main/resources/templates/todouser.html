@@ -15,7 +15,6 @@
     Display Header
     <div id="header-place"></div> -->
 
-<!-- <body class="bg" onload="displayFooter(), displayToDoCounts()"> -->
 <body class="bg" onload="displayFooter()">
 
 	<header>
@@ -41,7 +40,7 @@
 						th:src="@{/images/down-arrow.png}" alt="dropdown-icon" /></span>
 					<div class="dropdown-content">
 						<a th:href="@{/todouser/list-page}">To-Do List</a> <a
-							th:href="@{/shoppinguser}">Shopping List</a>
+							th:href="@{/shoppinguser/list-page}">Shopping List</a>
 					</div>
 				</div>
 				<a th:href="@{/about}" class="button-for-nav">About</a> <a
@@ -97,6 +96,7 @@
 									th:checked="${taskRow.checkbox}" onChange = 'this.form.submit()'/>
 							</form>
 						</td>
+						<!-- Task Description -->
 						<td class="task-column" th:text="${taskRow.taskDesc}" />
 						<td class="click-column" style="width: 15%;">
 						<!-- Remove button -->
@@ -112,15 +112,12 @@
 			<div class="input-section-todo">
 				<div class="form-section">
 					<label for="task">New Task:</label>
-					<!--Instead of submitting, pressing enter executes addRowToDo()-->
 					<form class="text-input" th:action="@{/todouser/add}"
 						th:object="${task}" method="post">
 						<!--User input-->
 						<input th:field="*{taskDesc}" type="text" name=task id=task
 							required minlength="1" maxlength="64" autofocus="autofocus" >
 						<!--User submits items that gets added to the list-->
-						<!--                         <input type="button" id="addBtn" class="square-button" value="+"
-                                onclick="addRowToDo()" /> -->
 						<input type="submit" id="addBtn" class="square-button" value="+" />
 					</form>
 				</div>
@@ -134,5 +131,3 @@
 </body>
 
 </html>
-
-<!-- onkeypress="enterForRows(event, 'todo-table')" -->

@@ -35,11 +35,11 @@ public class TodoList {
 	}
 
 	// Getters and Setters
-	public int getTotalNumberofTasks() {
+	public int getTotalNumberOfTasks() {
 		return totalNumberOfTasks;
 	}
 
-	public void setTotalNumberofTasks(int totalNumberofTasks) {
+	public void setTotalNumberOfTasks(int totalNumberofTasks) {
 		this.totalNumberOfTasks = totalNumberofTasks;
 	}
 

@@ -44,7 +44,7 @@ public class TodoListController {
 	}
 
 	@GetMapping("/list-page")
-	public String showTodouserForm(Model model) {
+	public String showTodoUserForm(Model model) {
 		// Get list of tasks from the user's to-do list
 		Collection<Task> taskList = taskService.getTasksByCurrentUserTodoList();
 		model.addAttribute("taskList", taskList);
@@ -52,7 +52,7 @@ public class TodoListController {
 		// Get to-do list
 		// Counters
 		TodoList todoList = taskService.getUserTodoList();
-		model.addAttribute("total", todoList.getTotalNumberofTasks()); // Total number of tasks
+		model.addAttribute("total", todoList.getTotalNumberOfTasks()); // Total number of tasks
 		model.addAttribute("completed", todoList.getNumOfCompletedTasks()); // Completed tasks
 		model.addAttribute("uncompleted", todoList.getNumOfUncompletedTasks()); // Uncompleted tasks
 
@@ -69,7 +69,7 @@ public class TodoListController {
 
 		taskService.save(taskDto);
 		// Do counts. Increment the total number of tasks by one in the counter.
-		userTodoList.setTotalNumberofTasks(userTodoList.getTotalNumberofTasks() + 1);
+		userTodoList.setTotalNumberOfTasks(userTodoList.getTotalNumberOfTasks() + 1);
 		userTodoList.setNumOfUncompletedTasks(userTodoList.getNumOfUncompletedTasks() + 1);
 		todoListRepository.save(userTodoList);
 		logger.info("Task successfully added");
@@ -83,7 +83,7 @@ public class TodoListController {
 		Task taskToRemove = taskRepository.findById(taskId).get();
 		
 		//Reduce total number
-		userTodoList.setTotalNumberofTasks(userTodoList.getTotalNumberofTasks() - 1);
+		userTodoList.setTotalNumberOfTasks(userTodoList.getTotalNumberOfTasks() - 1);
 		//Checkbox counts
 		taskService.checkboxCount(taskToRemove, true);
 		
